@@ -11,6 +11,7 @@ import { Button, message } from 'antd'
 import { useState } from 'react'
 
 import type { ButtonProps } from 'antd'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
 
 import { sendLoginPhoneVerifyCode } from '#/api/login'
@@ -24,6 +25,7 @@ export type SendPhoneCodeButtonProps = Omit<ButtonProps, 'onClick' | 'disabled'>
 export const SendPhoneCodeButton: FC<SendPhoneCodeButtonProps> = (props) => {
   const [loadState, setLoad] = useState(false)
   const { start, count, timingStatus } = useCountdown(60)
+  const i18nFormat = useTranslations('pages.login')
 
   /**
    * 发送登录验证码
@@ -58,7 +60,7 @@ export const SendPhoneCodeButton: FC<SendPhoneCodeButtonProps> = (props) => {
         type={'link'}
         style={{ padding: 0, lineHeight: '22px', height: 'auto', ...props.style }}
       >
-        {timingStatus ? count : '发送验证码'}
+        {timingStatus ? count : i18nFormat('card.sendVerifyCode')}
       </Button>
     </>
   )

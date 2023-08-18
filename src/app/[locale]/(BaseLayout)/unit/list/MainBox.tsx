@@ -12,7 +12,7 @@ import type { TablePaginationConfig } from 'antd'
 import type { FC, PropsWithChildren } from 'react'
 
 import { fetchUnitListAsPage } from '#/api/unit'
-import { ActionBar } from '#/app/(BaseLayout)/unit/list/components/ActionBar'
+import { ActionBar } from '#/app/[locale]/(BaseLayout)/unit/list/components/ActionBar'
 import LayoutSpace from '#/components/LayoutSpace'
 import MainContent from '#/components/MainContent'
 import { useMounted } from '#/hooks'

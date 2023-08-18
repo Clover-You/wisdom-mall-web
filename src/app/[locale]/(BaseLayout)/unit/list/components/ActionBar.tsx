@@ -11,7 +11,7 @@
 import { Button, Col, Dropdown, Input, Row, Space, theme } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import type { FC } from 'react'
-import { AddUnitDrawer } from '#/app/(BaseLayout)/unit/list/components/AddUnitDrawer'
+import { AddUnitDrawer } from '#/app/[locale]/(BaseLayout)/unit/list/components/AddUnitDrawer'
 import { useState } from 'react'
 
 export const ActionBar: FC<{

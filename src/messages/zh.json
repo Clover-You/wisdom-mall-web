@@ -1,0 +1,30 @@
+{
+  "pages": {
+    "login": {
+      "card": {
+        "title": "登录",
+        "noAccount": "还没有账号?",
+        "toRegister": "去注册",
+        "forgotPass": "忘记密码?",
+        "sendVerifyCode": "发送验证码",
+        "input": {
+          "phone": {
+            "placeholder": "手机号",
+            "form": {
+              "ruleMessage": "请输入登录手机号"
+            }
+          },
+          "verifyCode": {
+            "placeholder": "验证码",
+            "form": {
+              "ruleMessage": "请输入6位验证码!"
+            }
+          }
+        },
+        "rememberMe": "记住我",
+        "submitBtn": "登录",
+        "loginMethodTip": "其它登录方式"
+      }
+    }
+  }
+}

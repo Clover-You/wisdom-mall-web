@@ -1,0 +1,30 @@
+{
+  "pages": {
+    "login": {
+      "card": {
+        "title": "Login",
+        "noAccount": "No account yet?",
+        "toRegister": "go to register",
+        "forgotPass": "forgot your password?",
+        "sendVerifyCode": "send code",
+        "input": {
+          "phone": {
+            "placeholder": "phone number",
+            "form": {
+              "ruleMessage": "Please enter your phone number"
+            }
+          },
+          "verifyCode": {
+            "placeholder": "verification code",
+            "form": {
+              "ruleMessage": "please enter 6-digit verification code!"
+            }
+          }
+        },
+        "rememberMe": "remember me",
+        "submitBtn": "LOGIN",
+        "loginMethodTip": "other login methods"
+      }
+    }
+  }
+}

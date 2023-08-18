@@ -24,6 +24,7 @@ import {
 } from 'antd'
 import Link from 'next/link'
 import type { FC } from 'react'
+import { useTranslations } from 'next-intl'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { AxiosError, AxiosResponse } from 'axios'
@@ -37,6 +38,7 @@ import { LoginMethodTab } from '#/components/LoginMethodList'
 
 const LoginCard: FC = () => {
   const { token } = theme.useToken()
+  const i18nFormat = useTranslations('pages.login')
   const router = useRouter()
 
   const [form] = Form.useForm<API.UserMobilePhoneLoginRequest>()
@@ -138,7 +140,7 @@ const LoginCard: FC = () => {
 
       <ConfigProvider componentSize={'large'}>
         <Card
-          title={'登录'}
+          title={i18nFormat('card.title')}
           style={{
             width: 500,
             transform: 'translate(-50%, -50%)',
@@ -157,31 +159,31 @@ const LoginCard: FC = () => {
           >
             <Form.Item>
               <Space>
-                <span>还没有账号?</span>
-                <Link href={'/register'}>去注册</Link>
+                <span>{i18nFormat('card.noAccount')}</span>
+                <Link href={'/register'}>{i18nFormat('card.toRegister')}</Link>
               </Space>
             </Form.Item>
 
             <Form.Item
               name={'phone'}
               help={''}
-              rules={[{ required: true, message: '请输入登录手机号' }]}
+              rules={[{ required: true, message: i18nFormat('card.input.phone.form.ruleMessage') }]}
             >
               <Input
                 prefix={<UserOutlined style={{ color: token.colorTextPlaceholder }} />}
-                placeholder="手机号"
+                placeholder={i18nFormat('card.input.phone.placeholder')}
               />
             </Form.Item>
 
             <Form.Item
               name={'verifyCode'}
               help={''}
-              rules={[{ required: true, message: '请输入6位验证码!' }]}
+              rules={[{ required: true, message: i18nFormat('card.input.verifyCode.form.ruleMessage') }]}
             >
               <Input
                 prefix={<LockOutlined style={{ color: token.colorTextPlaceholder }} />}
                 autoComplete={'none'}
-                placeholder={'验证码'}
+                placeholder={i18nFormat('card.input.verifyCode.placeholder')}
                 suffix={
                   <SendPhoneCodeButton
                     before={verifyPhoneCode}
@@ -194,11 +196,11 @@ const LoginCard: FC = () => {
             <Form.Item>
               <Row>
                 <Col flex={1}>
-                  <Checkbox>记住我</Checkbox>
+                  <Checkbox>{i18nFormat('card.rememberMe')}</Checkbox>
                 </Col>
 
                 <Col>
-                  <Link href={'/forget'}>忘记密码?</Link>
+                  <Link href={'/forget'}>{i18nFormat('card.forgotPass')}</Link>
                 </Col>
               </Row>
             </Form.Item>
@@ -209,11 +211,11 @@ const LoginCard: FC = () => {
               type={'primary'}
               loading={loadState}
             >
-              登录
+              {i18nFormat('card.submitBtn')}
             </Button>
           </Form>
 
-          <Divider plain>其它登录方式</Divider>
+          <Divider plain>{i18nFormat('card.loginMethodTip')}</Divider>
           <LoginMethodTab />
         </Card>
       </ConfigProvider>
