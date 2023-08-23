@@ -38,7 +38,7 @@ import { LoginMethodTab } from '#/components/LoginMethodList'
 
 const LoginCard: FC = () => {
   const { token } = theme.useToken()
-  const i18nFormat = useTranslations('pages.login')
+  const t = useTranslations('pages.login')
   const router = useRouter()
 
   const [form] = Form.useForm<API.UserMobilePhoneLoginRequest>()
@@ -77,8 +77,8 @@ const LoginCard: FC = () => {
       // 一秒后显示欢迎回来
       setTimeout(() => {
         notificationApi?.open({
-          message: '🎉 欢迎',
-          description: `${user.user?.userName}!下午好,欢迎回来👏`,
+          message: t('successWelcome.title'),
+          description: `${user.user?.userName}! ${t('successWelcome.message')}`,
         })
       }, 3000)
     } catch (err) {
@@ -140,7 +140,7 @@ const LoginCard: FC = () => {
 
       <ConfigProvider componentSize={'large'}>
         <Card
-          title={i18nFormat('card.title')}
+          title={t('card.title')}
           style={{
             width: 500,
             transform: 'translate(-50%, -50%)',
@@ -159,31 +159,31 @@ const LoginCard: FC = () => {
           >
             <Form.Item>
               <Space>
-                <span>{i18nFormat('card.noAccount')}</span>
-                <Link href={'/register'}>{i18nFormat('card.toRegister')}</Link>
+                <span>{t('card.noAccount')}</span>
+                <Link href={'/register'}>{t('card.toRegister')}</Link>
               </Space>
             </Form.Item>
 
             <Form.Item
               name={'phone'}
               help={''}
-              rules={[{ required: true, message: i18nFormat('card.input.phone.form.ruleMessage') }]}
+              rules={[{ required: true, message: t('card.input.phone.form.ruleMessage') }]}
             >
               <Input
                 prefix={<UserOutlined style={{ color: token.colorTextPlaceholder }} />}
-                placeholder={i18nFormat('card.input.phone.placeholder')}
+                placeholder={t('card.input.phone.placeholder')}
               />
             </Form.Item>
 
             <Form.Item
               name={'verifyCode'}
               help={''}
-              rules={[{ required: true, message: i18nFormat('card.input.verifyCode.form.ruleMessage') }]}
+              rules={[{ required: true, message: t('card.input.verifyCode.form.ruleMessage') }]}
             >
               <Input
                 prefix={<LockOutlined style={{ color: token.colorTextPlaceholder }} />}
                 autoComplete={'none'}
-                placeholder={i18nFormat('card.input.verifyCode.placeholder')}
+                placeholder={t('card.input.verifyCode.placeholder')}
                 suffix={
                   <SendPhoneCodeButton
                     before={verifyPhoneCode}
@@ -196,11 +196,11 @@ const LoginCard: FC = () => {
             <Form.Item>
               <Row>
                 <Col flex={1}>
-                  <Checkbox>{i18nFormat('card.rememberMe')}</Checkbox>
+                  <Checkbox>{t('card.rememberMe')}</Checkbox>
                 </Col>
 
                 <Col>
-                  <Link href={'/forget'}>{i18nFormat('card.forgotPass')}</Link>
+                  <Link href={'/forget'}>{t('card.forgotPass')}</Link>
                 </Col>
               </Row>
             </Form.Item>
@@ -211,11 +211,11 @@ const LoginCard: FC = () => {
               type={'primary'}
               loading={loadState}
             >
-              {i18nFormat('card.submitBtn')}
+              {t('card.submitBtn')}
             </Button>
           </Form>
 
-          <Divider plain>{i18nFormat('card.loginMethodTip')}</Divider>
+          <Divider plain>{t('card.loginMethodTip')}</Divider>
           <LoginMethodTab />
         </Card>
       </ConfigProvider>

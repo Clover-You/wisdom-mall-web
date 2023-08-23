@@ -1,8 +1,13 @@
 {
   "pages": {
     "login": {
+      "title": "wisdon-login",
+      "successWelcome": {
+        "title": "🎉 Welcome",
+        "message": "Good afternoon, welcome back👏"
+      },
       "card": {
-        "title": "Login",
+        "title": "LOGIN",
         "noAccount": "No account yet?",
         "toRegister": "go to register",
         "forgotPass": "forgot your password?",
@@ -25,6 +30,346 @@
         "submitBtn": "LOGIN",
         "loginMethodTip": "other login methods"
       }
+    },
+    "register": {
+      "card": {
+        "title": "REGISTER",
+        "submitBtn": "REGISTER",
+        "sendVerifyCode": "send code",
+        "haveAccount": "already have an account?",
+        "toLogin": "go to login",
+        "input": {
+          "phone": {
+            "placeholder": "please enter your phone number",
+            "form": {
+              "ruleMessage": "please enter the registered mobile phone number"
+            }
+          },
+          "verifyCode": {
+            "placeholder": "please enter the verification code",
+            "form": {
+              "ruleMessage": "please enter 6-digit verification code!"
+            }
+          },
+          "password": {
+            "placeholder": "please enter 6~20 non-space characters",
+            "form": {
+              "ruleMessage": "please enter the password",
+              "minNumRuleMessage": "password limit 6-20 digits"
+            }
+          }
+        }
+      }
+    },
+    "unit-list": {
+      "action": {
+        "addBtn": "New Unit",
+        "batchOperation": "Batch Operation",
+        "dropdown-items": {
+          "delete": "Delete",
+          "enable": "Enable",
+          "disable": "Disable"
+        },
+        "searchBtnText": "Search"
+      },
+      "add-unit-drawer": {
+        "system-error-message": "system error",
+        "title": "New Unit",
+        "form": {
+          "unit-name": {
+            "label": "Unit name",
+            "rule-message": "please enter a company name",
+            "placeholder": "please enter a company name"
+          },
+          "unit-remark": {
+            "label": "Remarks"
+          },
+          "is-decimal": {
+            "label": "Allow decimals",
+            "allow": "Allow",
+            "not-allowed": "Not Allowed"
+          }
+        },
+        "btn": {
+          "save-insert": "Save and insert",
+          "save": "Save",
+          "cancel": "Cancel"
+        }
+      },
+      "edit-unit-drawer": {
+        "system-error-message": "system error",
+        "title": "Modify Unit",
+        "form": {
+          "unit-name": {
+            "label": "Unit name",
+            "rule-message": "please enter a company name",
+            "placeholder": "please enter a company name"
+          },
+          "unit-remark": {
+            "label": "Remarks"
+          },
+          "is-decimal": {
+            "label": "Allow decimals",
+            "allow": "Allow",
+            "not-allowed": "Not Allowed"
+          },
+          "enable": {
+            "label": "Enable"
+          }
+        },
+        "btn": {
+          "save": "Save",
+          "cancel": "Cancel"
+        }
+      },
+      "unit-grid": {
+        "loading-text": "data loading",
+        "columns": {
+          "sort": "Seq",
+          "operation": "Operation",
+          "unit-name": "UnitName",
+          "allow-decimal": "AllowDecimals",
+          "enable": "Status",
+          "unit-remark": "Remarks"
+        },
+        "allow": "Allow",
+        "not-allowed": "Not Allowed",
+        "enable": "Enable",
+        "disable": "Disable",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "removeUnitAlert": "Are you sure you want to delete the selected unit?",
+      "removeSuccess": "Deleted successfully!"
+    },
+    "product-list": {
+      "action": {
+        "batch-dropdown": {
+          "label": "BatchOperation",
+          "func": {
+            "label": "Function",
+            "children": {
+              "move-to-category": {
+                "label": "Move to category"
+              }
+            }
+          },
+          "other": {
+            "label": "Other",
+            "children": {
+              "top": {
+                "label": "Top"
+              },
+              "disable": {
+                "label": "Disable"
+              },
+              "enable": {
+                "label": "Enable"
+              },
+              "delete": {
+                "label": "Delete"
+              }
+            }
+          }
+        },
+        "mover-dropdown": {
+          "label": "Mover",
+          "children": {
+            "import": {
+              "label": "Import"
+            },
+            "export": {
+              "label": "Export"
+            }
+          }
+        },
+        "search-input": {
+          "placeholder": "Search number、name、specification、attribute、barcode、comment",
+          "label": "Search"
+        },
+        "new-btn-text": "New",
+        "ignore-disable-commodity": "Ignore disable",
+        "super-search-btn-text": "SuperSearch"
+      },
+      "product-grid": {
+        "columns": {
+          "operation": "Operation",
+          "no": "No.",
+          "name": "Name",
+          "attr": "Attribute",
+          "unit": "Unit",
+          "sale-price": "RetailPrice",
+          "unit-weight": "UnitWeight (kg)"
+        },
+        "grid-operation-btn": {
+          "details": "Details",
+          "copy": "Copy",
+          "edit": "Edit",
+          "delete": "Delete"
+        }
+      }
+    },
+    "product-add": {
+      "basic-information": {
+        "label": "Basic Information",
+        "form": {
+          "bill-no": {
+            "label": "Barcode",
+            "suffix": "Generate"
+          },
+          "product-no": {
+            "label": "No."
+          },
+          "product-name": {
+            "label": "Name",
+            "input": {
+              "placeholder": "For example: NFC mango juice"
+            }
+          },
+          "category": {
+            "label": "Category"
+          },
+          "unit": {
+            "label": "Unit"
+          },
+          "multiple-units": {
+            "label": "Enable Multiple Units"
+          },
+          "enable": {
+            "label": "Enable Goods"
+          },
+          "unit-weight": {
+            "label": "Unit weight(kg)",
+            "input": {
+              "placeholder": "Base unit weight"
+            }
+          },
+          "remark": {
+            "label": "Remarks"
+          }
+        }
+      },
+      "price-management": {
+        "label": "Price Management",
+        "form": {
+          "numismatic-unit": "$",
+          "retail-rice": {
+            "label": "Retail Price",
+            "input": {
+              "placeholder": "Please enter"
+            }
+          },
+          "wholesale-price": {
+            "label": "Wholesale Price",
+            "input": {
+              "placeholder": "Please enter"
+            }
+          },
+          "grade-price1": {
+            "label": "Grade price1",
+            "input": {
+              "placeholder": "Wholesale Price x 100%"
+            }
+          },
+          "grade-price2": {
+            "label": "Grade Price2",
+            "input": {
+              "placeholder": "Wholesale Price x 100%"
+            }
+          },
+          "grade-price3": {
+            "label": "Grade price3",
+            "input": {
+              "placeholder": "Wholesale Price x 100%"
+            }
+          },
+          "lowest-selling-price": {
+            "label": "Lowest selling price",
+            "input": {
+              "placeholder": "Please enter"
+            }
+          },
+          "reference-purchase-price": {
+            "label": "Reference purchase price",
+            "input": {
+              "placeholder": "Please enter"
+            }
+          }
+        }
+      },
+      "opening-inventory": {
+        "label": "Opening Inventory",
+        "grid": {
+          "columns": {
+            "warehouse": {
+              "label": "Warehouse"
+            },
+            "opening-inventory-quantity": {
+              "label": "OpeningInventoryQuantity"
+            },
+            "opening-cost-price": {
+              "label": "OpeningCostPrice"
+            },
+            "opening-total-amount": {
+              "label": "OpeningTotalAmount"
+            },
+            "remark": {
+              "label": "Remark"
+            }
+          }
+        }
+      },
+      "inventory-alert": {
+        "label": "Inventory Alert",
+        "grid": {
+          "columns": {
+            "warehouse": {
+              "label": "Warehouse"
+            },
+            "mini-stock-quantity": {
+              "label": "MiniStockQuantity"
+            },
+            "max-stock-quantity": {
+              "label": "MaxStockQuantity"
+            }
+          }
+        }
+      },
+      "footer": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "save-and-copy-insert": "Save and insert",
+        "save-insert": "Save insert"
+      }
+    },
+    "product-category": {
+      "action": {
+        "new-category": "New",
+        "expand-all": "Expand All",
+        "product-list": "Product List"
+      }
     }
-  }
+  },
+  "menus": {
+    "information": {
+      "title": "Information",
+      "subs": {
+        "unit": {
+          "title": "UnitSetting"
+        },
+        "commodity": {
+          "title": "Product",
+          "subs": {
+            "commodity-information": {
+              "title": "Information"
+            },
+            "commodity-category": {
+              "title": "Category"
+            }
+          }
+        }
+      }
+    }
+  },
+  "SystemErrorMessage": "system error"
 }

@@ -9,7 +9,8 @@
  */
 'use client'
 import { Button, Form, Input, Radio, Space } from 'antd'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
 
 import DrawerPro from '#/components/DrawerPro'
@@ -30,6 +31,8 @@ export const AddUnitDrawer: FC<UnitDrawerProps> = (props) => {
   const [loadState, setLoadState] = useState(false)
   const [form] = Form.useForm<API.AddUnitRequest>()
   const messageApi = useMessage()
+  const t = useTranslations('pages.unit-list.add-unit-drawer')
+
   // 记录操作是否成功
   let operationSucceededFlag = useRef(false)
 
@@ -63,7 +66,7 @@ export const AddUnitDrawer: FC<UnitDrawerProps> = (props) => {
       setOpenState(false)
     } catch (err) {
       console.error(err)
-      messageApi?.error?.('系统异常')
+      messageApi?.error?.(t('system-error-message'))
     } finally {
       setLoadState(false)
     }
@@ -73,7 +76,7 @@ export const AddUnitDrawer: FC<UnitDrawerProps> = (props) => {
 
   return (
     <DrawerPro
-      title={'新增单位'}
+      title={t('title')}
       width={700}
       open={open}
       closeIcon={!loadState}
@@ -94,11 +97,11 @@ export const AddUnitDrawer: FC<UnitDrawerProps> = (props) => {
         onFinish={onFormSubmit}
       >
         <Form.Item
-          label={'单位名称'}
+          label={t('form.unit-name.label')}
           name={'unitName'}
-          rules={[{ required: true, message: '请输入单位名称' }]}
+          rules={[{ required: true, message: t('form.unit-name.rule-message') }]}
         >
-          <Input placeholder={'请输入单位名称'} />
+          <Input placeholder={t('form.unit-name.placeholder')} />
         </Form.Item>
 
         <Form.Item name={'isDecimal'}>
@@ -106,7 +109,7 @@ export const AddUnitDrawer: FC<UnitDrawerProps> = (props) => {
         </Form.Item>
 
         <Form.Item
-          label={'备注'}
+          label={t('form.unit-remark.label')}
           name={'unitRemark'}
         >
           <Input.TextArea rows={3} />
@@ -121,6 +124,7 @@ const DecimalRadio: FC<{
   onChange?: (value?: number) => void
 }> = (props) => {
   const [value, setValue] = useState<number>()
+  const t = useTranslations('pages.unit-list.add-unit-drawer.form')
 
   useEffect(() => {
     setValue(props.value)
@@ -128,7 +132,7 @@ const DecimalRadio: FC<{
 
   return (
     <Space size={16}>
-      <span>允许小数</span>
+      <span>{t('is-decimal.label')}</span>
 
       <Radio.Group
         defaultValue={0}
@@ -138,8 +142,8 @@ const DecimalRadio: FC<{
           props.onChange?.(e.target.value)
         }}
       >
-        <Radio value={1}>允许</Radio>
-        <Radio value={0}>不允许</Radio>
+        <Radio value={1}>{t('is-decimal.allow')}</Radio>
+        <Radio value={0}>{t('is-decimal.not-allowed')}</Radio>
       </Radio.Group>
     </Space>
   )
@@ -150,27 +154,29 @@ const FooterAction: FC<{
   loadState: boolean
   cancelClick: () => void
 }> = (props) => {
+  const t = useTranslations('pages.unit-list.add-unit-drawer.btn')
+
   return (
     <Space>
       <Button
         onClick={props.submit}
         loading={props.loadState}
       >
-        保存并新增
+        {t('save-insert')}
       </Button>
 
       <Button
         type={'primary'}
         disabled={props.loadState}
       >
-        保存
+        {t('save')}
       </Button>
 
       <Button
         onClick={props.cancelClick}
         disabled={props.loadState}
       >
-        取消
+        {t('cancel')}
       </Button>
     </Space>
   )

@@ -7,31 +7,37 @@
  * @author: Clover
  * @create: 2023-07-19 17:38
  */
-import GridPro from '#/components/GridPro'
-import { GridProColumns } from '#/components/GridPro/GridProType'
+import { useTranslations } from 'next-intl'
+
 import type { FC } from 'react'
 
+import GridPro from '#/components/GridPro'
+import { GridProColumns } from '#/components/GridPro/GridProType'
+
 export const InventoryForm: FC = () => {
+  const t = useTranslations('pages.product-add.opening-inventory.grid')
 
   const Columns: GridProColumns<any> = [
     {
-      title: '仓库',
+      title: t('columns.warehouse.label'),
     },
     {
-      title: '期初库存数量'
+      title: t('columns.opening-inventory-quantity.label'),
     },
     {
-      title: '期初成本价'
+      title: t('columns.opening-cost-price.label'),
     },
     {
-      title: '期初总金额'
+      title: t('columns.opening-total-amount.label'),
     },
     {
-      title: '备注'
-    }
+      title: t('columns.remark.label'),
+    },
   ]
 
-  return <>
-    <GridPro columns={Columns} />
-  </>
+  return (
+    <>
+      <GridPro columns={Columns} />
+    </>
+  )
 }

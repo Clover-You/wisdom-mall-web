@@ -10,7 +10,7 @@
 import { useRef, useState } from 'react'
 
 export const useCountdown = (progress: number, ms: number = 1000) => {
-  const timer = useRef<NodeJS.Timer>()
+  const timer = useRef<NodeJS.Timeout>()
   const [count, setCounter] = useState(progress)
   const [timingStatus, setTimingSatet] = useState(false)
 

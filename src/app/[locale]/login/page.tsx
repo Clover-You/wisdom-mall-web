@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic'
 const LoginContentBox = dynamic(() => import('./LoginContentBox'), { ssr: false })
 
 export const metadata = {
-  title: '智慧商贸-登录',
+  title: '智慧商城-登录',
 }
 
 function Login() {

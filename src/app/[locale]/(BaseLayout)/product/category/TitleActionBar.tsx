@@ -11,6 +11,8 @@
 import { Button, Col, Row, Space } from 'antd'
 import { useContext, type FC } from 'react'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+
 import { PageContext } from './context'
 
 export const TitleActionBar: FC<{
@@ -19,22 +21,26 @@ export const TitleActionBar: FC<{
 }> = (props) => {
   const router = useRouter()
   const context = useContext(PageContext)
+  const t = useTranslations('pages.product-category.action')
 
   return (
     <>
       <Row justify={'space-between'}>
         <Col>
           <Space>
-            <Button type={'primary'} onClick={props.addCategory}>
-              添加分类
+            <Button
+              type={'primary'}
+              onClick={props.addCategory}
+            >
+              {t('new-category')}
             </Button>
 
-            <Button onClick={() => context.expandAll()}>全部展开</Button>
+            <Button onClick={() => context.expandAll()}>{t('expand-all')}</Button>
           </Space>
         </Col>
-        
+
         <Col>
-          <Button onClick={() => router.push('/product/list')}>商品列表</Button>
+          <Button onClick={() => router.push('/product/list')}>{t('product-list')}</Button>
         </Col>
       </Row>
     </>

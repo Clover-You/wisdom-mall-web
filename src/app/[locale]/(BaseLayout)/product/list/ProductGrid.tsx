@@ -10,16 +10,14 @@
 'use client'
 import { Button, Divider, Space } from 'antd'
 import Link from 'next/link'
+import { SettingFilled } from '@ant-design/icons'
+import { useTranslations } from 'next-intl'
 
 import type { CSSProperties, FC } from 'react'
 
 import GridPro from '#/components/GridPro'
-import {
-  GridProAlignType,
-  GridProFixedType,
-} from '#/components/GridPro/GridProType'
+import { GridProAlignType, GridProFixedType } from '#/components/GridPro/GridProType'
 import MainContent from '#/components/MainContent'
-import { SettingFilled } from '@ant-design/icons'
 
 const TableData = [
   {
@@ -93,6 +91,8 @@ type DataType = (typeof TableData)[number]
 const ButtonStyle: CSSProperties = { padding: 0, height: 'auto' }
 
 const ProductGrid: FC = () => {
+  const t = useTranslations('pages.product-list.product-grid')
+
   return (
     <MainContent>
       <GridPro<DataType>
@@ -108,65 +108,83 @@ const ProductGrid: FC = () => {
             fixed: GridProFixedType.Left,
           },
           {
-            title: '操作',
+            title: t('columns.operation'),
             key: 'action',
             width: 100,
             align: GridProAlignType.Center,
             fixed: GridProFixedType.Left,
             render: (value, record, index) => {
               return (
-                <Space size={0} split={<Divider type={'vertical'} />}>
-                  <Link key={'Detail'} href={''}>
-                    详情
+                <Space
+                  size={0}
+                  split={<Divider type={'vertical'} />}
+                >
+                  <Link
+                    key={'Detail'}
+                    href={''}
+                  >
+                    {t('grid-operation-btn.details')}
                   </Link>
 
-                  <Button key={'Copy'} type={'link'} style={ButtonStyle}>
-                    复制
+                  <Button
+                    key={'Copy'}
+                    type={'link'}
+                    style={ButtonStyle}
+                  >
+                    {t('grid-operation-btn.copy')}
                   </Button>
 
-                  <Button key={'Edit'} type={'link'} style={ButtonStyle}>
-                    编辑
+                  <Button
+                    key={'Edit'}
+                    type={'link'}
+                    style={ButtonStyle}
+                  >
+                    {t('grid-operation-btn.edit')}
                   </Button>
 
-                  <Button key={'Remove'} type={'link'} style={ButtonStyle}>
-                    删除{' '}
+                  <Button
+                    key={'Remove'}
+                    type={'link'}
+                    style={ButtonStyle}
+                  >
+                    {t('grid-operation-btn.delete')}
                   </Button>
                 </Space>
               )
             },
           },
           {
-            title: '编号',
+            title: t('columns.no'),
             field: 'barCode',
             key: 'barCode',
             width: 150,
             fixed: GridProFixedType.Left,
           },
           {
-            title: '名称',
+            title: t('columns.name'),
             field: 'productName',
             key: 'productName',
             width: 200,
             fixed: GridProFixedType.Left,
           },
           {
-            title: '属性',
+            title: t('columns.attr'),
             key: 'attr',
             field: 'propertyList',
             width: 150,
           },
-          { title: '基本单位', field: 'unitName', key: 'unitName', width: 90 },
+          { title: t('columns.unit'), field: 'unitName', key: 'unitName', width: 90 },
           {
-            title: '零售价(元)',
+            title: t('columns.sale-price'),
             field: 'salePrice',
             key: 'salePrice',
             width: 90,
           },
           {
-            title: '单位重量(kg)',
+            title: t('columns.unit-weight'),
             field: 'unitWeight',
             key: 'unitWeight',
-            minWidth: 90
+            minWidth: 90,
           },
         ]}
         rowKey={(d) => d.barCode}

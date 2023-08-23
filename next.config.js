@@ -25,7 +25,8 @@ const nextConfig = withNextIntl({
       fallback: [
         {
           source: '/api/:path*',
-          destination: 'http://localhost:8840/api/:path*',
+          // destination: 'http://localhost:8840/api/:path*',
+          destination: 'http://wisdom.ctong.top/api/:path*',
         },
       ],
     }

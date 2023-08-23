@@ -9,10 +9,11 @@
  */
 'use client'
 import { CSSProperties, FC, useState } from 'react'
+import { Button, Divider, Space, TablePaginationConfig } from 'antd'
+import { useTranslations } from 'next-intl'
 
 import GridPro from '#/components/GridPro'
 import { GridProAlignType, GridProColumns, GridProFixedType } from '#/components/GridPro/GridProType'
-import { Button, Divider, Space, TablePaginationConfig } from 'antd'
 
 export const UnitList: FC<{
   /**表格数据 */
@@ -27,16 +28,18 @@ export const UnitList: FC<{
   remove: (record: API.UnitPageResponse) => void
   onChange?: () => void
 }> = (props) => {
+  const t = useTranslations('pages.unit-list.unit-grid')
+
   const [columns] = useState<GridProColumns<API.UnitPageResponse>>([
     {
-      title: '序号',
+      title: t('columns.sort'),
       field: 'sort',
       align: GridProAlignType.Center,
       fixed: GridProFixedType.Left,
       width: 60,
     },
     {
-      title: '操作',
+      title: t('columns.operation'),
       align: GridProAlignType.Center,
       fixed: GridProFixedType.Left,
       width: 140,
@@ -48,24 +51,24 @@ export const UnitList: FC<{
       ),
     },
     {
-      title: '单位名称',
+      title: t('columns.unit-name'),
       field: 'unitName',
       minWidth: 120,
     },
     {
-      title: '允许小数',
+      title: t('columns.allow-decimal'),
       field: 'isDecimal',
       minWidth: 120,
-      render: (value: number) => (value == 0 ? '不允许' : '允许'),
+      render: (value: number) => (value == 0 ? t('not-allowed') : t('allow')),
     },
     {
-      title: '状态',
+      title: t('columns.enable'),
       field: 'enable',
       minWidth: 120,
-      render: (value: number) => (value == 0 ? '停用' : '启用'),
+      render: (value: number) => (value == 0 ? t('disable') : t('enable')),
     },
     {
-      title: '备注',
+      title: t('columns.unit-remark'),
       field: 'unitRemark',
       minWidth: 120,
     },
@@ -97,6 +100,7 @@ const GridOperation: FC<{
   remove: () => void
 }> = (props) => {
   const ButtonStyle: CSSProperties = { padding: 0, height: 'auto' }
+  const t = useTranslations('pages.unit-list.unit-grid')
 
   return (
     <Space
@@ -108,14 +112,14 @@ const GridOperation: FC<{
         style={ButtonStyle}
         onClick={props.onEdit}
       >
-        编辑
+        {t('edit')}
       </Button>
       <Button
         type={'link'}
         style={ButtonStyle}
         onClick={props.remove}
       >
-        删除
+        {t('delete')}
       </Button>
     </Space>
   )

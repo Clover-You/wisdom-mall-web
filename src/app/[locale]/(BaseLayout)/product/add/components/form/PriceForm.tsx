@@ -9,6 +9,8 @@
  */
 'use client'
 import { Col, Form, FormInstance, Input, Row, theme } from 'antd'
+import { useTranslations } from 'next-intl'
+
 import type { FC } from 'react'
 
 export const PriceForm: FC<{
@@ -17,50 +19,75 @@ export const PriceForm: FC<{
   const {
     token: { margin },
   } = theme.useToken()
+  const t = useTranslations('pages.product-add.price-management.form')
 
   return (
     <>
-      <Form layout={'vertical'} form={props.form}>
+      <Form
+        layout={'vertical'}
+        form={props.form}
+      >
         <Row gutter={margin}>
           <Col span={6}>
-            <Form.Item label={'零售价'}>
-              <Input addonAfter={'元'} placeholder={'请输入'} />
+            <Form.Item label={t('retail-rice.label')}>
+              <Input
+                addonAfter={t('numismatic-unit')}
+                placeholder={t('retail-rice.input.placeholder')}
+              />
             </Form.Item>
           </Col>
 
           <Col span={6}>
-            <Form.Item label={'批发价'}>
-              <Input addonAfter={'元'} placeholder={'请输入'} />
+            <Form.Item label={t('wholesale-price.label')}>
+              <Input
+                addonAfter={t('numismatic-unit')}
+                placeholder={t('wholesale-price.input.placeholder')}
+              />
             </Form.Item>
           </Col>
 
           <Col span={6}>
-            <Form.Item label={'等级价一'}>
-              <Input addonAfter={'元'} placeholder={'批发价 x 100%'} />
+            <Form.Item label={t('grade-price1.label')}>
+              <Input
+                addonAfter={t('numismatic-unit')}
+                placeholder={t('grade-price1.input.placeholder')}
+              />
             </Form.Item>
           </Col>
 
           <Col span={6}>
-            <Form.Item label={'等级价二'}>
-              <Input addonAfter={'元'} placeholder={'批发价 x 100%'} />
+            <Form.Item label={t('grade-price2.label')}>
+              <Input
+                addonAfter={t('numismatic-unit')}
+                placeholder={t('grade-price2.input.placeholder')}
+              />
             </Form.Item>
           </Col>
 
           <Col span={6}>
-            <Form.Item label={'等级价三'}>
-              <Input addonAfter={'元'} placeholder={'批发价 x 100%'} />
+            <Form.Item label={t('grade-price3.label')}>
+              <Input
+                addonAfter={t('numismatic-unit')}
+                placeholder={t('grade-price3.input.placeholder')}
+              />
             </Form.Item>
           </Col>
 
           <Col span={6}>
-            <Form.Item label={'最低售价'}>
-              <Input addonAfter={'元'} placeholder={'请输入'} />
+            <Form.Item label={t('lowest-selling-price.label')}>
+              <Input
+                addonAfter={t('numismatic-unit')}
+                placeholder={t('lowest-selling-price.input.placeholder')}
+              />
             </Form.Item>
           </Col>
 
           <Col span={6}>
-            <Form.Item label={'参考进货价'}>
-              <Input addonAfter={'元'} placeholder={'请输入'} />
+            <Form.Item label={t('reference-purchase-price.label')}>
+              <Input
+                addonAfter={t('numismatic-unit')}
+                placeholder={t('reference-purchase-price.input.placeholder')}
+              />
             </Form.Item>
           </Col>
         </Row>

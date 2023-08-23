@@ -8,18 +8,8 @@
  * @create: 2023-07-19 16:59
  */
 'use client'
-import {
-  Button,
-  Checkbox,
-  Col,
-  Form,
-  FormInstance,
-  Input,
-  Row,
-  Select,
-  Switch,
-  theme,
-} from 'antd'
+import { Button, Checkbox, Col, Form, FormInstance, Input, Row, Select, Switch, theme } from 'antd'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
 
 export const BaseInfoForm: FC<{
@@ -28,16 +18,27 @@ export const BaseInfoForm: FC<{
   const {
     token: { margin },
   } = theme.useToken()
+  const t = useTranslations('pages.product-add.basic-information.form')
+
   return (
     <>
-      <Form labelCol={{ span: 8 }} form={props.form}>
+      <Form
+        labelCol={{ span: 8 }}
+        form={props.form}
+      >
         <Row gutter={margin}>
           <Col span={8}>
-            <Form.Item label={'条形码'} name={'billNo'}>
+            <Form.Item
+              label={t('bill-no.label')}
+              name={'billNo'}
+            >
               <Input
                 suffix={
-                  <Button type={'link'} style={{ padding: 0, height: 'auto' }}>
-                    生成
+                  <Button
+                    type={'link'}
+                    style={{ padding: 0, height: 'auto' }}
+                  >
+                    {t('bill-no.suffix')}
                   </Button>
                 }
               />
@@ -45,39 +46,45 @@ export const BaseInfoForm: FC<{
           </Col>
 
           <Col span={8}>
-            <Form.Item label={'商品编号'} name={'productNo'}>
+            <Form.Item
+              label={t('product-no.label')}
+              name={'productNo'}
+            >
               <Input />
             </Form.Item>
           </Col>
 
           <Col span={16}>
-            <Form.Item label={'名称'} labelCol={{ span: 4 }}>
-              <Input placeholder={'例如: NFC芒果汁'} />
+            <Form.Item
+              label={t('product-name.label')}
+              labelCol={{ span: 4 }}
+            >
+              <Input placeholder={t('product-name.input.placeholder')} />
             </Form.Item>
           </Col>
 
           <Col span={8} />
 
           <Col span={8}>
-            <Form.Item label={'商品分类'}>
+            <Form.Item label={t('category.label')}>
               <Select />
             </Form.Item>
           </Col>
 
           <Col span={8}>
-            <Form.Item label={'单位'}>
+            <Form.Item label={t('unit.label')}>
               <Input />
             </Form.Item>
           </Col>
 
           <Col span={8}>
             <Form.Item>
-              <Checkbox>启用多单位</Checkbox>
+              <Checkbox>{t('multiple-units.label')}</Checkbox>
             </Form.Item>
           </Col>
 
           <Col span={8}>
-            <Form.Item label={'启用商品'}>
+            <Form.Item label={t('enable.label')}>
               <Switch />
             </Form.Item>
           </Col>
@@ -85,15 +92,21 @@ export const BaseInfoForm: FC<{
           <Col span={16} />
 
           <Col span={8}>
-            <Form.Item label={'单位重量(kg)'}>
-              <Input addonAfter={'kg'} placeholder={'基本单位的重量'} />
+            <Form.Item label={t('unit-weight.label')}>
+              <Input
+                addonAfter={'kg'}
+                placeholder={t('unit-weight.input.placeholder')}
+              />
             </Form.Item>
           </Col>
 
           <Col span={16} />
 
           <Col span={16}>
-            <Form.Item label={'备注'} labelCol={{ span: 4 }}>
+            <Form.Item
+              label={t('remark.label')}
+              labelCol={{ span: 4 }}
+            >
               <Input.TextArea rows={2} />
             </Form.Item>
           </Col>

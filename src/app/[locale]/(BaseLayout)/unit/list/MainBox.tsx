@@ -10,6 +10,7 @@ import { useCallback, useState } from 'react'
 
 import type { TablePaginationConfig } from 'antd'
 import type { FC, PropsWithChildren } from 'react'
+import { useTranslations } from 'next-intl'
 
 import { fetchUnitListAsPage } from '#/api/unit'
 import { ActionBar } from '#/app/[locale]/(BaseLayout)/unit/list/components/ActionBar'
@@ -21,11 +22,12 @@ import { useModal } from '#/hooks/antd/useModal'
 import { wait } from '#/utils'
 import { useRequetErrorTools } from '#/utils/request/hooks/useRequetErrorTools'
 import { EditUnitDrawer } from './components/EditUnitDrawer'
-import { UnitList } from './components/UnitList'
+import { UnitList } from './components/UnitGrid'
 
 export const MainBox: FC<PropsWithChildren> = () => {
   const messageApi = useMessage()
   const modalApi = useModal()
+  const t = useTranslations('pages.unit-list')
 
   const [queryWrapper, setQueryWrapper] = useState<API.UnitPageRequest>({
     unitName: '',
@@ -99,9 +101,9 @@ export const MainBox: FC<PropsWithChildren> = () => {
    */
   const onRemoveRow = (record: API.UnitPageResponse) => {
     modalApi?.confirm?.({
-      content: '确定要删除选中的单位吗?',
+      content: t('removeUnitAlert'),
       onOk: async () => {
-        messageApi?.success?.('删除成功')
+        messageApi?.success?.(t('removeSuccess'))
       },
     })
   }

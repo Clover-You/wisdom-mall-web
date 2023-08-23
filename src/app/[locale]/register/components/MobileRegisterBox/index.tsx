@@ -9,8 +9,10 @@
  */
 import { memo, useState } from 'react'
 import { LockOutlined, SecurityScanOutlined, UserOutlined } from '@ant-design/icons'
-import { Button, Card, CardProps, Form, Input, theme, FormProps } from 'antd'
+import { Button, Card, CardProps, Form, Input, theme, FormProps, Space } from 'antd'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 import { useMessage } from '#/hooks/antd/useMessage'
 import { useCountdown } from '#/hooks/timing/useCountdown'
@@ -26,9 +28,10 @@ export default function MobileRegisterBox() {
   const [form] = Form.useForm<API.UserMobileRegisterRequest>()
 
   const [loading, setLoad] = useState(false)
+  const t = useTranslations('pages.register')
 
   const cardProps: CardProps = {
-    title: '注册',
+    title: t('card.title'),
     style: {
       width: 500,
       transform: 'translate(-50%, -50%)',
@@ -92,24 +95,31 @@ export default function MobileRegisterBox() {
         onFinish={submit}
         onFinishFailed={onFailed}
       >
+        <Form.Item>
+          <Space>
+            <span>{t('card.haveAccount')}</span>
+            <Link href={'/login'}>{t('card.toLogin')}</Link>
+          </Space>
+        </Form.Item>
+
         <Form.Item
-          rules={[{ required: true, message: '请输入手机号' }]}
+          rules={[{ required: true, message: t('card.input.phone.form.ruleMessage') }]}
           name={'phone'}
           help={''}
         >
           <Input
-            placeholder={'请输入手机号'}
+            placeholder={t('card.input.phone.placeholder')}
             prefix={<UserOutlined style={{ color: colorTextPlaceholder }} />}
           />
         </Form.Item>
 
         <Form.Item
-          rules={[{ required: true, message: '请输入验证码' }]}
+          rules={[{ required: true, message: t('card.input.verifyCode.form.ruleMessage') }]}
           name={'verifyCode'}
           help={''}
         >
           <Input
-            placeholder={'请输入验证码'}
+            placeholder={t('card.input.verifyCode.placeholder')}
             prefix={<SecurityScanOutlined style={{ color: colorTextPlaceholder }} />}
             suffix={<SendBtnAddon onClick={sendVerifyCode} />}
           />
@@ -117,9 +127,8 @@ export default function MobileRegisterBox() {
 
         <Form.Item
           rules={[
-            { required: true, message: '请输入密码' },
-            { min: 6, message: '密码限制6-20位' },
-            { max: 20, message: '密码限制6-20位' },
+            { required: true, message: t('card.input.password.form.ruleMessage') },
+            { min: 6, message: t('card.input.password.form.minNumRuleMessage') },
           ]}
           name={'password'}
           help={''}
@@ -127,7 +136,7 @@ export default function MobileRegisterBox() {
           <Input
             minLength={6}
             maxLength={20}
-            placeholder={'请输入6~20位非空格字符'}
+            placeholder={t('card.input.password.placeholder')}
             prefix={<LockOutlined style={{ color: colorTextPlaceholder }} />}
           />
         </Form.Item>
@@ -138,7 +147,7 @@ export default function MobileRegisterBox() {
           htmlType={'submit'}
           loading={loading}
         >
-          注册
+          {t('card.submitBtn')}
         </Button>
       </Form>
     </Card>
@@ -150,6 +159,7 @@ export default function MobileRegisterBox() {
  */
 const SendBtnAddon = memo(function SendBtnAddon(props: { onClick: () => Promise<boolean | undefined> }) {
   const { count, start, timingStatus } = useCountdown(60)
+  const t = useTranslations('pages.register.card')
 
   return (
     <Button
@@ -159,7 +169,7 @@ const SendBtnAddon = memo(function SendBtnAddon(props: { onClick: () => Promise<
       type={'link'}
       style={{ padding: 0, lineHeight: '22px', height: 'auto' }}
     >
-      {timingStatus ? count : '发送验证码'}
+      {timingStatus ? count : t('sendVerifyCode')}
     </Button>
   )
 })

@@ -9,53 +9,44 @@
  */
 'use client'
 import { DownOutlined } from '@ant-design/icons'
-import {
-  Button,
-  Checkbox,
-  Col,
-  Dropdown,
-  Input,
-  MenuProps,
-  Row,
-  Select,
-  Space,
-  theme
-} from 'antd'
+import { Button, Checkbox, Col, Dropdown, Input, MenuProps, Row, Select, Space, theme } from 'antd'
 import type { FC } from 'react'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
 import MainContent from '#/components/MainContent'
 
 const ActionBar: FC = () => {
   const router = useRouter()
+  const t = useTranslations('pages.product-list.action')
 
   const MenuItemList: MenuProps['items'] = [
     {
-      label: '功能',
+      label: t('batch-dropdown.func.label'),
       key: '1',
       type: 'group',
-      children: [{ label: '移动至分类', key: '1-1' }],
+      children: [{ label: t('batch-dropdown.func.children.move-to-category.label'), key: '1-1' }],
     },
     {
-      label: '其它',
+      label: t('batch-dropdown.other.label'),
       key: '2',
       type: 'group',
       children: [
-        { label: '置顶', key: '2-1' },
-        { label: '停用', key: '2-2' },
-        { label: '启用', key: '2-3' },
-        { label: '删除', key: '2-4' },
+        { label: t('batch-dropdown.other.children.top.label'), key: '2-1' },
+        { label: t('batch-dropdown.other.children.disable.label'), key: '2-2' },
+        { label: t('batch-dropdown.other.children.enable.label'), key: '2-3' },
+        { label: t('batch-dropdown.other.children.delete.label'), key: '2-4' },
       ],
     },
   ]
 
   const MoreMenuItemList: MenuProps['items'] = [
     {
-      label: '导入',
+      label: t('mover-dropdown.children.import.label'),
       key: '1',
     },
     {
-      label: '导出',
+      label: t('mover-dropdown.children.export.label'),
       key: '2',
     },
   ]
@@ -66,33 +57,37 @@ const ActionBar: FC = () => {
 
   const SearchBox = () => (
     <Input.Search
-      placeholder="搜索编号、名称、规格、属性、条形码、备注"
-      enterButton={<Button>搜索</Button>}
+      placeholder={t('search-input.placeholder')}
+      enterButton={<Button>{t('search-input.label')}</Button>}
     />
   )
 
   return (
     <MainContent>
-      <Row align={'middle'} justify={'end'} gutter={[sizeXS, sizeXS]}>
+      <Row
+        align={'middle'}
+        justify={'end'}
+        gutter={[sizeXS, sizeXS]}
+      >
         <Col style={{ alignSelf: 'start' }}>
           <Space>
             <Button
               type={'primary'}
               onClick={() => router.push('/product/add')}
             >
-              新增商品
+              {t('new-btn-text')}
             </Button>
 
             <Dropdown menu={{ items: MenuItemList }}>
               <Button>
-                批量操作
+                {t('batch-dropdown.label')}
                 <DownOutlined />
               </Button>
             </Dropdown>
 
             <Dropdown menu={{ items: MoreMenuItemList }}>
               <Button>
-                更多
+                {t('mover-dropdown.label')}
                 <DownOutlined />
               </Button>
             </Dropdown>
@@ -102,7 +97,7 @@ const ActionBar: FC = () => {
         <Col style={{ flexGrow: 1 }}></Col>
 
         <Col>
-          <Checkbox checked>不显示停用商品</Checkbox>
+          <Checkbox checked>{t('ignore-disable-commodity')}</Checkbox>
         </Col>
 
         <Col>
@@ -123,7 +118,7 @@ const ActionBar: FC = () => {
           xl={{ span: 4, order: 3 }}
           xxl={{ order: 4, span: 2 }}
         >
-          <Button style={{ width: '100%' }}>高级搜索</Button>
+          <Button style={{ width: '100%' }}>{t('super-search-btn-text')}</Button>
         </Col>
 
         {/* 

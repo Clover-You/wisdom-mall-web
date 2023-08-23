@@ -1,6 +1,11 @@
 {
   "pages": {
     "login": {
+      "title": "智慧商城-登录",
+      "successWelcome": {
+        "title": "🎉 欢迎",
+        "message": "下午好,欢迎回来👏"
+      },
       "card": {
         "title": "登录",
         "noAccount": "还没有账号?",
@@ -25,6 +30,346 @@
         "submitBtn": "登录",
         "loginMethodTip": "其它登录方式"
       }
+    },
+    "register": {
+      "card": {
+        "haveAccount": "已有账号?",
+        "toLogin": "去登录",
+        "title": "注册",
+        "submitBtn": "注册",
+        "sendVerifyCode": "发送验证码",
+        "input": {
+          "phone": {
+            "placeholder": "请输入手机号",
+            "form": {
+              "ruleMessage": "请输入注册手机号"
+            }
+          },
+          "verifyCode": {
+            "placeholder": "请输入验证码",
+            "form": {
+              "ruleMessage": "请输入6位验证码!"
+            }
+          },
+          "password": {
+            "placeholder": "请输入6~20位非空格字符",
+            "form": {
+              "ruleMessage": "请输入密码",
+              "minNumRuleMessage": "密码限制6-20位"
+            }
+          }
+        }
+      }
+    },
+    "unit-list": {
+      "action": {
+        "addBtn": "新增单位",
+        "batchOperation": "批量操作",
+        "dropdown-items": {
+          "delete": "删除",
+          "enable": "启用",
+          "disable": "停用"
+        },
+        "searchBtnText": "搜索"
+      },
+      "add-unit-drawer": {
+        "system-error-message": "系统异常",
+        "title": "新增单位",
+        "form": {
+          "unit-name": {
+            "label": "单位名称",
+            "rule-message": "请输入单位名称",
+            "placeholder": "请输入单位名称"
+          },
+          "unit-remark": {
+            "label": "备注"
+          },
+          "is-decimal": {
+            "label": "允许小数",
+            "allow": "允许",
+            "not-allowed": "不允许"
+          }
+        },
+        "btn": {
+          "save-insert": "保存并新增",
+          "save": "保存",
+          "cancel": "取消"
+        }
+      },
+      "edit-unit-drawer": {
+        "system-error-message": "系统异常",
+        "title": "新增单位",
+        "form": {
+          "unit-name": {
+            "label": "单位名称",
+            "rule-message": "请输入单位名称",
+            "placeholder": "请输入单位名称"
+          },
+          "unit-remark": {
+            "label": "备注"
+          },
+          "is-decimal": {
+            "label": "允许小数",
+            "allow": "允许",
+            "not-allowed": "不允许"
+          },
+          "enable": {
+            "label": "启用"
+          }
+        },
+        "btn": {
+          "save": "保存",
+          "cancel": "取消"
+        }
+      },
+      "unit-grid": {
+        "loading-text": "数据加载中",
+        "columns": {
+          "sort": "序号",
+          "operation": "操作",
+          "unit-name": "单位名称",
+          "allow-decimal": "允许小数",
+          "enable": "状态",
+          "unit-remark": "备注"
+        },
+        "allow": "允许",
+        "not-allowed": "不允许",
+        "enable": "启用",
+        "disable": "停用",
+        "edit": "编辑",
+        "delete": "删除"
+      },
+      "removeUnitAlert": "您确定要删除选中的单位吗？",
+      "removeSuccess": "删除成功!"
+    },
+    "product-list": {
+      "action": {
+        "batch-dropdown": {
+          "label": "批量操作",
+          "func": {
+            "label": "功能",
+            "children": {
+              "move-to-category": {
+                "label": "移动至分类"
+              }
+            }
+          },
+          "other": {
+            "label": "其它",
+            "children": {
+              "top": {
+                "label": "置顶"
+              },
+              "disable": {
+                "label": "停用"
+              },
+              "enable": {
+                "label": "启用"
+              },
+              "delete": {
+                "label": "删除"
+              }
+            }
+          }
+        },
+        "mover-dropdown": {
+          "label": "更多",
+          "children": {
+            "import": {
+              "label": "导入"
+            },
+            "export": {
+              "label": "导出"
+            }
+          }
+        },
+        "search-input": {
+          "placeholder": "搜索编号、名称、规格、属性、条形码、备注",
+          "label": "搜索"
+        },
+        "new-btn-text": "新增商品",
+        "ignore-disable-commodity": "不显示停用商品",
+        "super-search-btn-text": "高级搜索"
+      },
+      "product-grid": {
+        "columns": {
+          "operation": "操作",
+          "no": "编号",
+          "name": "名称",
+          "attr": "属性",
+          "unit": "基本单位",
+          "sale-price": "零售价(元)",
+          "unit-weight": "单位重量(kg)"
+        },
+        "grid-operation-btn": {
+          "details": "详情",
+          "copy": "复制",
+          "edit": "编辑",
+          "delete": "删除"
+        }
+      }
+    },
+    "product-add": {
+      "basic-information": {
+        "label": "基本资料",
+        "form": {
+          "bill-no": {
+            "label": "条形码",
+            "suffix": "生成"
+          },
+          "product-no": {
+            "label": "商品编号"
+          },
+          "product-name": {
+            "label": "名称",
+            "input": {
+              "placeholder": "例如: NFC芒果汁"
+            }
+          },
+          "category": {
+            "label": "商品分类"
+          },
+          "unit": {
+            "label": "单位"
+          },
+          "multiple-units": {
+            "label": "启用多单位"
+          },
+          "enable": {
+            "label": "启用商品"
+          },
+          "unit-weight": {
+            "label": "单位重量(kg)",
+            "input": {
+              "placeholder": "基本单位的重量"
+            }
+          },
+          "remark": {
+            "label": "备注"
+          }
+        }
+      },
+      "price-management": {
+        "label": "价格管理",
+        "form": {
+          "numismatic-unit": "元",
+          "retail-rice": {
+            "label": "零售价",
+            "input": {
+              "placeholder": "批发价 x 100%"
+            }
+          },
+          "wholesale-price": {
+            "label": "批发价",
+            "input": {
+              "placeholder": "批发价 x 100%"
+            }
+          },
+          "grade-price1": {
+            "label": "等级价一",
+            "input": {
+              "placeholder": "批发价 x 100%"
+            }
+          },
+          "grade-price2": {
+            "label": "等级价二",
+            "input": {
+              "placeholder": "批发价 x 100%"
+            }
+          },
+          "grade-price3": {
+            "label": "等级价三",
+            "input": {
+              "placeholder": "批发价 x 100%"
+            }
+          },
+          "lowest-selling-price": {
+            "label": "最低售价",
+            "input": {
+              "placeholder": "请输入"
+            }
+          },
+          "reference-purchase-price": {
+            "label": "参考进货价",
+            "input": {
+              "placeholder": "请输入"
+            }
+          }
+        }
+      },
+      "opening-inventory": {
+        "label": "期初库存",
+        "grid": {
+          "columns": {
+            "warehouse": {
+              "label": "仓库"
+            },
+            "opening-inventory-quantity": {
+              "label": "期初库存数量"
+            },
+            "opening-cost-price": {
+              "label": "期初成本价"
+            },
+            "opening-total-amount": {
+              "label": "期初总金额"
+            },
+            "remark": {
+              "label": "备注"
+            }
+          }
+        }
+      },
+      "inventory-alert": {
+        "label": "库存预警",
+        "grid": {
+          "columns": {
+            "warehouse": {
+              "label": "仓库"
+            },
+            "mini-stock-quantity": {
+              "label": "最低库存数量"
+            },
+            "max-stock-quantity": {
+              "label": "最高库存数量"
+            }
+          }
+        }
+      },
+      "footer": {
+        "cancel": "取消",
+        "save": "保存",
+        "save-and-copy-insert": "保存并复制新增",
+        "save-insert": "保存并新增"
+      }
+    },
+    "product-category": {
+      "action": {
+        "new-category": "添加分类",
+        "expand-all": "全部展开",
+        "product-list": "商品列表"
+      }
     }
-  }
+  },
+  "menus": {
+    "information": {
+      "title": "资料",
+      "subs": {
+        "unit": {
+          "title": "单位设置"
+        },
+        "commodity": {
+          "title": "商品",
+          "subs": {
+            "commodity-information": {
+              "title": "商品资料"
+            },
+            "commodity-category": {
+              "title": "商品分类"
+            }
+          }
+        }
+      }
+    }
+  },
+  "SystemErrorMessage": "系统异常"
 }

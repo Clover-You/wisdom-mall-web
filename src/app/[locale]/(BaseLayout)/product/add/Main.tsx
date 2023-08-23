@@ -10,6 +10,7 @@
 'use client'
 
 import { Form } from 'antd'
+import { useTranslations } from 'next-intl'
 
 import type { FC } from 'react'
 
@@ -23,6 +24,7 @@ import { PriceForm } from './components/form/PriceForm'
 
 export const ProductAddMain: FC = () => {
   const [form] = Form.useForm()
+  const t = useTranslations('pages.product-add')
 
   const saveAndAdd = () => {
     console.log(form.getFieldsValue())
@@ -30,25 +32,25 @@ export const ProductAddMain: FC = () => {
 
   return (
     <>
-      <MainContent title={'基本信息'}>
+      <MainContent title={t('basic-information.label')}>
         <BaseInfoForm form={form} />
       </MainContent>
 
       <LayoutSpace direction={'vertical'} />
 
-      <MainContent title={'价格管理'}>
+      <MainContent title={t('price-management.label')}>
         <PriceForm form={form} />
       </MainContent>
 
       <LayoutSpace direction={'vertical'} />
 
-      <MainContent title={'期初库存'}>
+      <MainContent title={t('opening-inventory.label')}>
         <InventoryForm />
       </MainContent>
 
       <LayoutSpace direction={'vertical'} />
 
-      <MainContent title={'库存预警'}>
+      <MainContent title={t('inventory-alert.label')}>
         <InventoryAlertForm />
       </MainContent>
 

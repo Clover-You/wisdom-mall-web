@@ -15,17 +15,24 @@ import { StyleProvider } from '@ant-design/cssinjs'
 import { AntdContextProvider } from '#/hooks/antd/context'
 
 import zhCN from 'antd/locale/zh_CN'
+import enUs from 'antd/locale/en_US'
+import { useLocale } from 'next-intl'
 
 export const AntdProvider: FC<PropsWithChildren> = ({ children }) => {
   const [notificationApi, notificationContextHolder] = notification.useNotification()
   const [messageApi, messageContextHolder] = message.useMessage()
   const [modalApi, modalContextHolder] = Modal.useModal()
+  const locale = useLocale()
+
+  const getLocale = () => {
+    return locale === 'zh' ? zhCN : enUs
+  }
 
   return (
     <>
       <StyleProvider>
         <ConfigProvider
-          locale={zhCN}
+          locale={getLocale()}
           theme={{
             algorithm: theme.darkAlgorithm,
           }}
