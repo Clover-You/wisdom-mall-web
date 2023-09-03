@@ -36,3 +36,15 @@ export const fetchUnitListAsPage = (params: API.UnitPageRequest) => {
 export const saveUnitUpdate = (params: API.SaveUnitUpdateRequest) => {
   return http.post<API.R>(service.unit.save_update, params)
 }
+
+/**
+ * 移除单位信息
+ * @param unitId 单位id
+ */
+export const deleteUnitById = (unitId: string) => {
+  return http.post<API.R>(service.unit.remove, null, {
+    params: {
+      unitId,
+    },
+  })
+}

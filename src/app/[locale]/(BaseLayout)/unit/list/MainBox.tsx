@@ -1,6 +1,6 @@
 /**
  * <p>
- *
+ * 单位管理主要内容
  * </p>
  * @author Clover
  * @date 2023-07-25 09:52
@@ -12,7 +12,7 @@ import type { TablePaginationConfig } from 'antd'
 import type { FC, PropsWithChildren } from 'react'
 import { useTranslations } from 'next-intl'
 
-import { fetchUnitListAsPage } from '#/api/unit'
+import { deleteUnitById, fetchUnitListAsPage } from '#/api/unit'
 import { ActionBar } from '#/app/[locale]/(BaseLayout)/unit/list/components/ActionBar'
 import LayoutSpace from '#/components/LayoutSpace'
 import MainContent from '#/components/MainContent'
@@ -103,7 +103,18 @@ export const MainBox: FC<PropsWithChildren> = () => {
     modalApi?.confirm?.({
       content: t('removeUnitAlert'),
       onOk: async () => {
+        const {
+          data: { code, message },
+        } = await deleteUnitById(record.unitId!)
+
+        if (code !== 200) {
+          messageApi?.error?.(message)
+          return
+        }
+
         messageApi?.success?.(t('removeSuccess'))
+
+        await fetchList(queryWrapper)
       },
     })
   }

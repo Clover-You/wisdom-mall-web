@@ -20,7 +20,7 @@ const UnitPage: FC = Auth(
   {
     login: true,
   },
-  (props, ctx) => {
+  () => {
     return <MainBox />
   },
 )

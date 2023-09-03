@@ -14,4 +14,6 @@ export const unit = {
   fetch_page: '/api/product/unit/page',
   // 修改单位信息
   save_update: '/api/product/unit/saveUpdate',
+  // 移除单位信息
+  remove: '/api/product/unit/remove',
 }
