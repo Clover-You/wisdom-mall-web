@@ -45,6 +45,7 @@
     "commitizen": "^4.3.0",
     "cypress": "^12.17.4",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint-plugin-cypress": "^2.14.0",
     "extend-expect": "link:@testing-library/jest-dom/extend-expect",
     "global": "^4.4.0",
     "husky": "^8.0.3",
