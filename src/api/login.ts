@@ -14,14 +14,14 @@ import service from '#/constant/service'
  */
 export const sendLoginPhoneVerifyCode = (phone: string) => {
   return http.get<API.R>(service.login.send_login_verify_code, {
-    params: { phone }
+    params: { phone },
   })
 }
 
 /**
  * 手机验证码登录
  * @param params 登录参数
- * @returns 
+ * @returns
  */
 export const userLoginByMobile = (params: API.UserMobilePhoneLoginRequest) => {
   return http.post<API.R<string>>(service.login.user_login, params)

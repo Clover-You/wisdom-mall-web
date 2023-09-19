@@ -11,9 +11,7 @@
 import type { PropsWithChildren, FC, CSSProperties } from 'react'
 import { Card, theme, CardProps } from 'antd'
 
-const MainContent: FC<
-  PropsWithChildren & { style?: CSSProperties } & CardProps
-> = (props) => {
+const MainContent: FC<PropsWithChildren & { style?: CSSProperties } & CardProps> = (props) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken()

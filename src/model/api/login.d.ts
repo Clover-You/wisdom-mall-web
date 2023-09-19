@@ -5,5 +5,4 @@
  * @author Clover
  * @date 2023-07-08 01:32
  */
-declare namespace API {
-}
+declare namespace API {}

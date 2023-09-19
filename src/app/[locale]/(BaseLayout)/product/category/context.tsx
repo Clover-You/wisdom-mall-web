@@ -14,9 +14,5 @@ const context: ContextType = {
 export const PageContext = React.createContext<ContextType>(context)
 
 export const PageContextProvider: FC<PropsWithChildren> = (props) => {
-  return (
-    <PageContext.Provider value={context}>
-      {props.children}
-    </PageContext.Provider>
-  )
+  return <PageContext.Provider value={context}>{props.children}</PageContext.Provider>
 }

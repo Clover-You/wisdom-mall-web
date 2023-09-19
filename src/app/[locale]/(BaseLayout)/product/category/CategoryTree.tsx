@@ -20,7 +20,7 @@ export const CategoryTree: FC = () => {
   context.expandAll = () => {
     const go = (list: any[]) => {
       let record: Key[] = []
-      list.map(it => {
+      list.map((it) => {
         record.push(it.key)
         if ((it.children?.length ?? 0) > 0) {
           record.push(...go(it.children))
