@@ -9,8 +9,8 @@
     "lint": "next lint",
     "format": "prettier --write src/",
     "release": "standard-version",
-    "test": "jest",
-    "cypress": "cypress open"
+    "test": "jest --passWithNoTests",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.16.2",
@@ -37,15 +37,12 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@cypress/react18": "^2.0.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.3",
     "@types/js-cookie": "^3.0.3",
     "commitizen": "^4.3.0",
-    "cypress": "^12.17.4",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint-plugin-cypress": "^2.14.0",
     "extend-expect": "link:@testing-library/jest-dom/extend-expect",
     "global": "^4.4.0",
     "husky": "^8.0.3",
@@ -53,6 +50,7 @@
     "jest-environment-jsdom": "^29.6.2",
     "prettier": "^3.0.2",
     "react-test-renderer": "^18.2.0",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "vitest": "^0.34.3"
   }
 }
